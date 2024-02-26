@@ -1,11 +1,16 @@
 
+import Chai from './chai.jsx'
+
 function App() {
 
 
-  return (
-    <>
-    <h1>chai aur react | animesh </h1>   
-    <h1>first code i have written in react</h1> 
+  return ( 
+    // <></> this is known as fragment 
+    <>              
+      <Chai/>
+      <h1>chai aur react | animesh </h1>
+      <h1>first code i have written in react</h1>
+      
     </>
   )
 }
@@ -18,3 +23,6 @@ export default App
 // npx : node package execute  
 // npm : node package manager 
 // read the package.json  
+
+
+// import syntax : import fuction-Name from './filename'
