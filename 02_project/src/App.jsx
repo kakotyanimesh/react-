@@ -7,7 +7,7 @@ function App() {
 
   // useState hook 
 
-  let [counter, setCounter] = useState(15)  // default value of my counter
+  const [counter, setCounter] = useState(15)  // default value of my counter
 
   // let counter = 5
 
@@ -19,8 +19,14 @@ function App() {
     // } else {
     //   setCounter(counter + 1)
     // }
-    if (counter < 20) {
-      setCounter(counter + 1)
+    if (counter < 100) {
+      // setCounter(counter + 1)
+      // there is an arrow function inside the setCounter or inside the setName
+
+      setCounter(prevCount => prevCount + 1)
+      // setCounter(prevCount => prevCount + 1)
+      // setCounter(prevCount => prevCount + 1) 
+      // setCounter(prevCount => prevCount + 1) // if we write like this then it would take first the previous value and do the work 
     }
     
   }
@@ -32,7 +38,11 @@ function App() {
     //   setCounter(counter - 1)
     // }
     if (counter > 0) {
-      setCounter(counter - 1)
+      setCounter(prevCount => prevCount - 1)
+      // setCounter(prevCount => prevCount - 1)
+      // setCounter(prevCount => prevCount - 1)
+
+      // setCounter(prevCount => prevCount - 1) // here also happening the same as like using the pevious value 
       
     }
   }
