@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { InputBox } from './components'
 import useCurrencyInfo from "./hooks/useCurrencyinfo"
-// import backgroundImage from "./assets/bg.jpg"
+
 
 function App() {
-  const [amout, setAmount] = useState(0)
+  const [amount, setAmount] = useState(0)
   const [from, setFrom] = useState("usd")
   const [to, setTo] = useState("inr")
   const [convertdeAmount, setConvertedAmount] = useState(0)
@@ -18,11 +18,13 @@ function App() {
   const swap = () =>{
     setFrom(to)
     setTo(from)
+    setConvertedAmount(amount)
+    setAmount(convertdeAmount)
     
   }
 
   const convert = () => {
-    setConvertedAmount(amout * currencyInfo[to])
+    setConvertedAmount(amount * currencyInfo[to])
   }
 
   return (
@@ -44,11 +46,11 @@ function App() {
                     <div className="w-full mb-1">
                         <InputBox
                             label="From"
-                            amount={amout}
+                            amount={amount}
                             currencyOptions={options}
-                            onCurrencyChange={(currency) => setAmount(amout)}
+                            onCurrencyChange={(currency) => setAmount(amount)}
                             selectCurrency={from}
-                            onAmountChange={(amout) => setAmount(amout)}
+                            onAmountChange={(amount) => setAmount(amount)}
                             
                         />
                     </div>
@@ -67,12 +69,12 @@ function App() {
                             amount={convertdeAmount}
                             currencyOptions={options}
                             onCurrencyChange={(currency) => setTo(currency)}
-                            selectCurrency={from}
+                            selectCurrency={to}
                             amountDisable
                             
                         />
                     </div>
-                    <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
+                    <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg" >
                         Convert {from.toUpperCase()} to {to.toUpperCase()}
                     </button>
                 </form>
