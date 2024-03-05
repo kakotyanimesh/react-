@@ -1,44 +1,106 @@
-import React from 'react'
-import { lazy, Suspense } from 'react'
-// import { Dashboard } from './componets/Dashboard'
- const Dashboard = lazy(() =>  import("./componets/Dashboard"))
-// import { Landing } from './componets/Landing'
-const Landing = lazy(() => import('./componets/Landing'))
+import { useState } from "react"
 
-import { BrowserRouter, Routes, Route, useNavigate} from "react-router-dom"
+function App() {
+  const [count, setCount] = useState(0)
 
-const App = () => {
+  return (
+    <div>
+      <Count count={count}/>
+      <Buttons count = {count} setCount = {setCount}/>
+ 
+    </div>
+  )
+  
+}
+
+function Count({count}) {
+  return <div>
+    {count}
+  </div>
+}
+
+function Buttons({count, setCount}) {
+  return <div>
+    <button onClick={() => {
+      setCount(count + 1)
+    }}>
+      increase
+    </button>
+    <button onClick={() => {
+      setCount(count - 1)
+    }}>
+      decrease
+    </button>
+  </div>
+
+}
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// code when i learn about the Router and lazy loading 
+
+
+
+// import React from 'react'
+// import { lazy, Suspense } from 'react'
+// // import { Dashboard } from './componets/Dashboard'
+//  const Dashboard = lazy(() =>  import("./componets/Dashboard"))
+// // import { Landing } from './componets/Landing'
+// const Landing = lazy(() => import('./componets/Landing'))
+
+// import { BrowserRouter, Routes, Route, useNavigate} from "react-router-dom"
+
+// const App = () => {
 
    
 
 
-  return (
-    <BrowserRouter>
-    <Appbar/>
-     <Routes>
-      <Route path = "/" element={<Suspense fallback={"loading..."}><Landing/></Suspense>}/>      
-      <Route path = "/Dashboard" element={<Suspense fallback={"loading..."}><Dashboard/></Suspense>}/>
-     </Routes>
-    </BrowserRouter>
-  )
-}
+//   return (
+//     <BrowserRouter>
+//     <Appbar/>
+//      <Routes>
+//       <Route path = "/" element={<Suspense fallback={"loading..."}><Landing/></Suspense>}/>      
+//       <Route path = "/Dashboard" element={<Suspense fallback={"loading..."}><Dashboard/></Suspense>}/>
+//      </Routes>
+//     </BrowserRouter>
+//   )
+// }
 
-function Appbar() {
-  const navigator = useNavigate()
+// function Appbar() {
+//   const navigator = useNavigate()
 
-  return (
-    <div>
-      <button onClick={() => {
-        navigator("/")
-      }}>Landing</button>
-      <button onClick={() => {
-        navigator("/Dashboard")
-      }}>Dashboard</button>
-    </div>
-  )
-}
+//   return (
+//     <div>
+//       <button onClick={() => {
+//         navigator("/")
+//       }}>Landing</button>
+//       <button onClick={() => {
+//         navigator("/Dashboard")
+//       }}>Dashboard</button>
+//     </div>
+//   )
+// }
 
-export default App
+// export default App
 
 
 
