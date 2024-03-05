@@ -1,16 +1,23 @@
 import React from 'react'
-import { Dashboard } from './componets/Dashboard'
-import { Landing } from './componets/Landing'
+import { lazy, Suspense } from 'react'
+// import { Dashboard } from './componets/Dashboard'
+ const Dashboard = lazy(() =>  import("./componets/Dashboard"))
+// import { Landing } from './componets/Landing'
+const Landing = lazy(() => import('./componets/Landing'))
 
 import { BrowserRouter, Routes, Route, useNavigate} from "react-router-dom"
 
 const App = () => {
+
+   
+
+
   return (
     <BrowserRouter>
     <Appbar/>
      <Routes>
-      <Route path = "/" element={<Landing/>}/>      
-      <Route path = "/Dashboard" element={<Dashboard/>}/>
+      <Route path = "/" element={<Suspense fallback={"loading..."}><Landing/></Suspense>}/>      
+      <Route path = "/Dashboard" element={<Suspense fallback={"loading..."}><Dashboard/></Suspense>}/>
      </Routes>
     </BrowserRouter>
   )
@@ -47,3 +54,8 @@ export default App
       </Routes>
     </BrowserRouter>
 */
+ 
+
+//   lazy loading => not giving the whole website but giving in interest 
+                // React.lazy()
+                // use the Suspense inside the element={<Suspense fallback={"loading.."}><Dashboard></Suspense>}
