@@ -19,14 +19,14 @@ function App() {
     // } else {
     //   setCounter(counter + 1)
     // }
-    if (counter < 100) {
+    if (counter < 20) {
       setCounter(counter + 1)
       // setCounter(counter + 1)
       // setCounter(counter + 1)
       // setCounter(counter + 1)
 
 
-       /*if we write like (setCounter(counter + 1) in multiple lines) then it would take first the previous value and do the work 
+       /*if we write like (setCounter(counter + 1) in multiple lines) then it would take first  previous value and do the work 
       it's called state as a SNAPSHOT.  When we write setCounter(counter+1) 
       multiple times it is updated only once because in the onclick handler of that render, 
       even after calling setCounter(counter + 1) 

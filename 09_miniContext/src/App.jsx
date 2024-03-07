@@ -7,7 +7,7 @@ function App() {
 
   return (
     <UserContextProvider>
-      <h1>react with animesh</h1>
+      <h1>context api </h1>
       <Login/>
       <Profile/>
     </UserContextProvider>
