@@ -17,7 +17,7 @@ function Select({
         className={`px-3 py-2 rounded-lg bg-white text-black 
         outline-none focus:bg-gray-50 duration-200 birder border-gray200 w-full ${className}`}
         >
-            {options.}
+            {options}
 
         </select>
     </div>
